@@ -15,10 +15,10 @@ put new record into this .tsv file. (editable with text editor)
 It is TAB(  ).
 
 like below:
-FromArmorID	ToArmorID\n
-ddr_power_armor_1	rwa_power_armor_1
-ddr_power_boots_1	rwa_power_boots_1
-ddr_power_helmet_1	common_glasses_1
+FromArmorID	ToArmorID<br>
+ddr_power_armor_1	rwa_power_armor_1<br>
+ddr_power_boots_1	rwa_power_boots_1<br>
+ddr_power_helmet_1	common_glasses_1<br>
 
 Right next to ArmorSpriteConversionList.tsv. there is also example_ArmorSpriteConversionList.tsv. This contains example file format.
 
