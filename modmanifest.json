@@ -1,0 +1,11 @@
+{
+  "UniqueModName": "LoC_ReplaceArmorSprites",
+  "Assemblies": [
+    "ReplaceArmorSprites.dll"
+  ],
+  "Dependencies": [],
+  "SteamTags": [
+    "1.0",
+    "Graphical"
+  ]
+}
