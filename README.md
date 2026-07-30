@@ -14,7 +14,7 @@ put new record into this .tsv file. (editable with text editor)
 "[from armor ID]  [to armor ID]"
 It is TAB(  ).
 
-like below:
+like below:<br>
 FromArmorID	ToArmorID<br>
 ddr_power_armor_1	rwa_power_armor_1<br>
 ddr_power_boots_1	rwa_power_boots_1<br>
