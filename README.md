@@ -11,7 +11,7 @@ C:\Users\[username]\AppData\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\R
 (ask where the Appdata is to AI if you don't know where it is)
 put new record into this .tsv file. (editable with text editor)
 
-"[from armor ID]  [to armor ID]"
+"[from armor ID]  [to armor ID]"<br>
 It is TAB(  ).
 
 like below:<br>
