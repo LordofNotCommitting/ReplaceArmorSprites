@@ -18,7 +18,7 @@ namespace replacearmorsprites
         private static string tsvFilePath;
         public static Dictionary<string, string> ReplacementMap = new Dictionary<string, string>();
 
-
+        public static string custom_postfix = "_custom";
 
         public static bool Prefix(bool forceBareHands, Creature3dView __instance)
         {
@@ -32,6 +32,24 @@ namespace replacearmorsprites
                 tsvFilePath = Path.Combine(ModPersistenceFolder, Plugin.tsv_filename);
 
                 ReplacementMap = LoadArmorReplacementTSV(tsvFilePath);
+
+                var temp_Entries = new List<KeyValuePair<string, string>>();
+
+                //deal with armor record that may have been modified by inserting more
+                foreach (var item in ReplacementMap)
+                {
+                    if (!item.Key.EndsWith(custom_postfix))
+                    {
+                        temp_Entries.Add(new KeyValuePair<string, string>(item.Key + custom_postfix, item.Value));
+                    }
+                }
+
+                foreach (var entry in temp_Entries)
+                {
+                    ReplacementMap[entry.Key] = entry.Value;
+                    //Plugin.Logger.Log($"Proccing replacement for {entry.Key} -> {entry.Value}");
+                }
+
                 bool_load_tsv_status = true;
             }
 
