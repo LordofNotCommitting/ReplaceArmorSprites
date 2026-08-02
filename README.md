@@ -26,4 +26,11 @@ To see armor ID, you can use console command mod and use command "itemscan".
 Beware as using console command will invalidate achievement progress on said save. Either do NOT save after using console command or use console command on separate save. Or use wiki to get armor ID once it gets updated to 1.0.
 
 Changelog:
-v1.01: Deal with modified armor not being impacted because they have "_custom" postfix.
+
+v1.02:
+I messed up part of the code so all weapons were 1 handed regardless of intended hand position. Fixed.
+
+v1.01: 
+Deal with modified armor not being impacted because they have "_custom" postfix.
+
+
