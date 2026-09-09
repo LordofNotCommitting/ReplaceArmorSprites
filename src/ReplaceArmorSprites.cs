@@ -187,22 +187,25 @@ namespace replacearmorsprites
 
                     if (record != null)
                     {
-                        // Get Descriptor
-                        helmetDescriptor = record.ItemDesc as HelmetDescriptor;
-
-                        // Get HelmetRecord directly from the database record or via Record method
                         HelmetRecord helmetRecord = record as HelmetRecord;
 
-                        // If HelmetRecord is stored inside record or fetched via Record<T>()
-                        if (helmetRecord == null)
+                        // If it's a CompositeItemRecord, search inside its nested Records list
+                        if (helmetRecord == null && record is CompositeItemRecord compositeRecord)
                         {
-                            helmetRecord = first3.Record<HelmetRecord>();
+                            helmetRecord = compositeRecord.GetRecord<HelmetRecord>();
                         }
 
-                        // Set flag safely
+                        // Get Descriptor directly or from the primary composite record
+                        helmetDescriptor = record.ItemDesc as HelmetDescriptor;
+
                         if (helmetRecord != null)
                         {
+                            Plugin.Logger.Log($"Found HelmetRecord ID: {helmetRecord.Id}, HideHair: {helmetRecord.HideHair}");
                             flag = helmetRecord.HideHair;
+                        }
+                        else
+                        {
+                            Plugin.Logger.LogWarning($"HelmetRecord could not be found inside CompositeItemRecord '{record.Id}'.");
                         }
                     }
 
@@ -286,6 +289,8 @@ namespace replacearmorsprites
                         __instance.EquipItem(bootsDescriptor.Parts, first4.Id);
                     }
                 }
+
+
                 BasePickupItem currentWeapon = __instance._inventory.CurrentWeapon;
                 if (currentWeapon != null)
                 {
@@ -294,8 +299,10 @@ namespace replacearmorsprites
                     {
                         __instance.RefreshWeapon(weaponDescriptor, currentWeapon.Id, currentWeapon.IsImplicit);
                     }
+                    else {
+                        __instance.RefreshWeapon(null, null, false);
+                    }
                 }
-                __instance.RefreshWeapon(null, null, false);
                 BaseCreatureVisualState baseCreatureVisualState;
                 if (__instance._currentVisualState != CreatureVisualState.None && __instance._visualStates.TryGetValue(__instance._currentVisualState, out baseCreatureVisualState))
                 {
