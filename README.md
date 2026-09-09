@@ -27,6 +27,9 @@ Beware as using console command will invalidate achievement progress on said sav
 
 Changelog:
 
+v1.03:
+Probably new patch or existing bug made hair show up on helmets when it shouldn't. fixed.
+
 v1.02:
 I messed up part of the code so all weapons were 1 handed regardless of intended hand position. Fixed.
 
